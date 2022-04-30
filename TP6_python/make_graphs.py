@@ -47,3 +47,21 @@ def print_decomposition(signal, coeffs):
     # Display graph on screen
     plt.show()
     plt.close()
+    
+# own function added
+def plot_4_graph(xs,ys, titles):
+    plt.rcParams['figure.figsize'] = [10, 5]
+    fig, axs = plt.subplots(2, 2)
+    for i in range(2):
+        for j in range(2):
+            axs[i,j].plot(xs[i*2+j], ys[i*2+j])
+            axs[i,j].set_title(titles[i*2+j])
+    plt.show()
+    
+def plot_hist(ts, bins=60):
+    plt.rcParams['figure.figsize'] = [20, 10]
+    fig, axs = plt.subplots(2, 2)
+    for i in range(2):
+        axs[i,0].hist(np.abs(ts[i]), bins=bins)
+        axs[i,1].hist(np.abs(ts[i]), bins=bins, cumulative=True, stacked=True, density=True)
+    plt.show()
